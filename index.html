@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wymiana na kryptowaluty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Wymiana na kryptowaluty</h1>
+    </header>
+    <main>
+        <form id="exchangeForm">
+            <label for="amount">Kwota (PLN):</label>
+            <input type="number" id="amount" name="amount" required>
+            
+            <label for="cryptoCurrency">Kryptowaluta:</label>
+            <select id="cryptoCurrency" name="cryptoCurrency" required>
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ETH">Ethereum (ETH)</option>
+                <option value="LTC">Litecoin (LTC)</option>
+            </select>
+            
+            <label for="walletAddress">Adres portfela kryptowalutowego:</label>
+            <input type="text" id="walletAddress" name="walletAddress" required>
+            
+            <label for="contactEmail">Twój adres email:</label>
+            <input type="email" id="contactEmail" name="contactEmail" required>
+            
+            <button type="submit">Zatwierdź wymianę</button>
+        </form>
+        <div id="transactionSummary" style="display: none;">
+            <h2>Podsumowanie transakcji:</h2>
+            <p id="amountSummary"></p>
+            <p id="cryptoCurrencySummary"></p>
+            <p id="walletAddressSummary"></p>
+            <p id="contactEmailSummary"></p>
+            <button onclick="confirmTransaction()">Potwierdź transakcję</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
