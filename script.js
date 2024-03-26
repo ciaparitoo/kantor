@@ -21,3 +21,10 @@ function confirmTransaction() {
     // Implement transaction confirmation logic here
     alert('Transakcja potwierdzona!');
 }
+
+
+
+function openTipplyPayment() {
+    var tipplyLink = "https://tipply.pl/@strimek.fun"; // Tutaj wstaw link płatności Tipply
+    window.open(tipplyLink, '_blank');
+}
