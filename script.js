@@ -28,3 +28,24 @@ function openTipplyPayment() {
     var tipplyLink = "https://tipply.pl/@strimek.fun"; // Tutaj wstaw link płatności Tipply
     window.open(tipplyLink, '_blank');
 }
+
+
+
+function convertPLNtoCrypto() {
+    var amountPLN = document.getElementById("amountPLN").value;
+    var cryptoCurrency = document.getElementById("cryptoCurrency").value;
+
+    // Wywołanie API CoinGecko, aby pobrać kurs wymiany
+    fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${cryptoCurrency}&vs_currencies=pln`)
+        .then(response => response.json())
+        .then(data => {
+            var exchangeRate = data[cryptoCurrency].pln;
+            var result = amountPLN / exchangeRate;
+            document.getElementById("result").textContent = `Otrzymasz około ${result.toFixed(8)} ${cryptoCurrency.toUpperCase()}`;
+        })
+        .catch(error => {
+            console.error('Wystąpił błąd:', error);
+            document.getElementById("result").textContent = "Wystąpił błąd. Spróbuj ponownie później.";
+        });
+}
+
